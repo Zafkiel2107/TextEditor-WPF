@@ -32,7 +32,10 @@ namespace TextEditor
                     TextRange textRange = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
                     if(textRange.CanLoad(DataFormats.Rtf))
                     {
-                        textRange.Load(fs, DataFormats.Rtf);
+                        Dispatcher.Invoke(() =>
+                        {
+                            textRange.Load(fs, DataFormats.Rtf);
+                        });
                     }
                     else
                     {
@@ -52,7 +55,10 @@ namespace TextEditor
                     TextRange textRange = new TextRange(rtbEditor.Document.ContentStart, rtbEditor.Document.ContentEnd);
                     if(textRange.CanSave(DataFormats.Rtf))
                     {
-                        textRange.Save(fs, DataFormats.Rtf);
+                        Dispatcher.Invoke(() =>
+                        {
+                            textRange.Save(fs, DataFormats.Rtf);
+                        });
                     }
                     else
                     {
